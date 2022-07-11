@@ -1,10 +1,10 @@
-import React from 'react'
-import axios from "axios";
+import React from 'react';
+import host from './host';
 
 async function getSelections(props) {
 
     let selections = {}
-    await fetch('http://localhost/crm_system/hs/1c/selection/?param=' + props.param + '&type=' + props.type)
+    await fetch(`${host}/?param=` + props.param + '&type=' + props.type)
         .then(res => res.json())
         .then(result => {
             selections = result

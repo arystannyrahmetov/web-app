@@ -1,0 +1,1 @@
+export default 'http://localhost/crm_system/hs/1c';
