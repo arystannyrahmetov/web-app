@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+.tab-margin {
+  margin-left: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
+
+}
+.brand-margin {
+    margin-left: 1rem !important;
+}
+
+.left-tab {
+    text-align: left !important;
+    color: rgba(0,0,0,.55);
+
+    border-left: white solid 1px;
+    border-top: white solid 1px;
+    border-right: white solid 1px;
+    border-radius: 1px;
+}
+
+.left-tab:hover {
+    color: rgba(0,0,0,.7);
+
+}
+
+.left-tab-active {
+    border-left: gray solid 1px;
+    border-top: gray solid 1px;
+    border-right: gray solid 1px;
+    border-radius: 1px;
+    box-shadow: gray 3px 0px 0px 0px inset;
+}
+
+.w30 {
+    width: 30% !important;
+    justify-content: center;
+}
