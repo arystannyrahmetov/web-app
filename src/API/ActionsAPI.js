@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from "axios";
+import host from './host'
 
 async function getActions() {
 
     let actions = {}
-    await fetch('http://localhost/crm_system/hs/1c/actions/')
+    await fetch(`${host}/actions/`)
         .then(res => res.json())
         .then(result => {
             actions = result
@@ -18,7 +19,7 @@ async function getActions() {
 async function getActionByUUID(props) {
 
     let action = {}
-    await fetch('http://localhost/crm_system/hs/1c/actions/?uuid=' + props.uuid + '&type=' + props.typeBack)
+    await fetch(`${host}/actions/?uuid=` + props.uuid + '&type=' + props.typeBack)
         .then(res => res.json())
         .then(result => {
             action = result.actions[0]
@@ -32,7 +33,7 @@ async function getActionByUUID(props) {
 async function saveAction(props) {
 
     let response = {}
-    await axios.post('http://localhost/crm_system/hs/1c/actions/', props, {
+    await axios.post(`${host}/actions/`, props, {
         headers : {
             'Content-Type': 'application/json'
         }
@@ -45,16 +46,6 @@ async function saveAction(props) {
     .catch(error => console.log(error))
 
     return response
-
-}
-
-async function sendPreflight() {
-
-    let reqOptions = {
-        method: 'OPTIONS'
-    }
-
-    await fetch('http://localhost/crm_system/hs/1c/actions/', reqOptions)
 
 }
 

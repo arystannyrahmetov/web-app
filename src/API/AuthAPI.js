@@ -1,8 +1,9 @@
 import axios from "axios";
+import host from './host'
 
 async function signIn(props) {
     let response = {}
-    await axios.post('http://localhost/crm_system/hs/1c/signin/', props, {
+    await axios.post(`${host}/signin/`, props, {
         headers : {
             'Content-Type': 'application/json'
         }

@@ -1,10 +1,10 @@
-import React from 'react'
-import axios from "axios";
+import React from 'react';
+import host from './host';
 
 async function getUsers(props) {
 
     let users = {}
-    await fetch('http://localhost/crm_system/hs/1c/users/' + '?excludedUser=' + props.uuid)
+    await fetch(`${host}/users/` + '?excludedUser=' + props.uuid)
         .then(res => res.json())
         .then(result => {
             users = result

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import axios from "axios";
+import host from './host'
 
 async function getOrders() {
 
     let orders = {}
-    await fetch('http://localhost/crm_system/hs/1c/orders/')
+    await fetch(`${host}/orders/`)
         .then(res => res.json())
         .then(result => {
             orders = result
@@ -18,7 +19,7 @@ async function getOrders() {
 async function getOrderByUUID(props) {
 
     let order = {}
-    await fetch('http://localhost/crm_system/hs/1c/orders/?uuid=' + props.uuid + '&print=false')
+    await fetch(`${host}/orders/?uuid=` + props.uuid + '&print=false')
         .then(res => res.json())
         .then(result => {
             order = result.orders
@@ -32,7 +33,7 @@ async function getOrderByUUID(props) {
 async function getOrderPrintByUUID(uuid) {
 
     let pdf = {}
-    await fetch('http://localhost/crm_system/hs/1c/orders/?uuid=' + uuid + '&print=true')
+    await fetch(`${host}/orders/?uuid=` + uuid + '&print=true')
         .then(res => res.json())
         .then(result => {
             pdf = result.pdf_base64
@@ -46,7 +47,7 @@ async function getOrderPrintByUUID(uuid) {
 async function saveOrder(props) {
 
     let response = {}
-    await axios.post('http://localhost/crm_system/hs/1c/orders/', props, {
+    await axios.post(`${host}/orders/`, props, {
         headers : {
             'Content-Type': 'application/json'
         }
